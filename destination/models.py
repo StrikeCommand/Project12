@@ -9,7 +9,7 @@ class Point(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
 
-    city = models.ForeignKey('City', on_delete=models.SET_NULL, null=True)
+    city = models.ForeignKey('City', on_delete=models.SET_NULL, null=True, related_name='points')
 
     class Meta:
         unique_together = ('name', 'city')
