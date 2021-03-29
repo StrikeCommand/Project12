@@ -6,26 +6,35 @@ from .models import Point, PointImage, City
 class PointImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = PointImage
-        fields = ['url']
+        fields = ['id', 'url']
 
 
-class PointSerializer(serializers.ModelSerializer):
+class ListPointSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Point
-        fields = ['name', 'city', 'latitude', 'longitude']
+        fields = ['id', 'name', 'city', 'latitude', 'longitude']
 
 
-class DetailPointSerializer(serializers.ModelSerializer):
+class PointSerializer(serializers.ModelSerializer):
     images = PointImageSerializer(many=True, read_only=True)
 
     class Meta:
         model = Point
-        fields = ['name', 'description', 'city', 'latitude', 'longitude',
+        fields = ['id', 'name', 'description', 'city', 'latitude', 'longitude',
                   'images']
 
 
 class CitySerializer(serializers.ModelSerializer):
+    points = ListPointSerializer(many=True, read_only=True)
+
     class Meta:
         model = City
-        fields = ['name', 'latitude', 'longitude']
+        fields = ['id', 'name', 'latitude', 'longitude', 'points']
+
+
+class ListCitySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = City
+        fields = ['id', 'name', 'latitude', 'longitude']
