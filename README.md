@@ -2,12 +2,13 @@
 
 ### Build 
 ```
-docker-compose run web python manage.py makemigrations
-docker-compose run web python manage.py migrate
+docker compose build
+docker compose run web python manage.py makemigrations
+docker compose run web python manage.py migrate
 ```
 Next run command
 
-`docker-compose run web python manage.py createsuperuser`
+`docker compose run web python manage.py createsuperuser`
 
 Enter your desired username and press enter.
 
@@ -28,7 +29,7 @@ Password (again): *********
 
 Finally
 
-`docker-compose up`
+`docker compose up`
 
 ### Endpoints
 - admin panel link: http://127.0.0.1:8000/admin/
