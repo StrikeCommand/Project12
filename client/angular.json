@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "project12": {
+    "web-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/project12",
+            "outputPath": "dist/web-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -65,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "project12:build"
+            "browserTarget": "web-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "project12:build:production"
+              "browserTarget": "web-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "project12:build"
+            "browserTarget": "web-app:build"
           }
         },
         "test": {
@@ -113,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "project12:serve"
+            "devServerTarget": "web-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "project12:serve:production"
+              "devServerTarget": "web-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "project12"
+  "defaultProject": "web-app"
 }
