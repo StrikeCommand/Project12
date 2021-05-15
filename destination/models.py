@@ -22,7 +22,7 @@ class Point(models.Model):
         unique_together = ('name', 'city')
 
     def __str__(self):
-        return format_lazy('{} ({})', self.name, self.city.name)
+        return '{} ({})'.format(self.name, self.city.name)
 
     def __repr__(self):
         return 'Point({}, {}, {}, {})'.format(
@@ -40,7 +40,7 @@ class PointImage(models.Model):
         verbose_name_plural = _('Point images')
 
     def __str__(self):
-        return format_lazy('Image {} of {}', self.pk, self.point.name)
+        return str(self.pk)
 
     def __repr__(self):
         return 'PointImage({}, {})'.format(self.point.name, self.url)
