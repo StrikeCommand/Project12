@@ -1,5 +1,11 @@
 # Project12
 
+### Requirements
+
+Angular>=14
+
+Docker
+
 ### Build 
 ```
 docker-compose run web python manage.py makemigrations
@@ -26,9 +32,12 @@ Password: **********
 Password (again): *********
 ```
 
-Finally
+### Start project
 
-`docker-compose up`
+```
+docker-compose up
+ng serve
+```
 
 ### Endpoints
 - admin panel link: http://127.0.0.1:8000/admin/
