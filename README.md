@@ -8,12 +8,13 @@ Docker
 
 ### Build 
 ```
-docker-compose run web python manage.py makemigrations
-docker-compose run web python manage.py migrate
+docker compose build
+docker compose run web python manage.py makemigrations
+docker compose run web python manage.py migrate
 ```
 Next run command
 
-`docker-compose run web python manage.py createsuperuser`
+`docker compose run web python manage.py createsuperuser`
 
 Enter your desired username and press enter.
 
@@ -35,7 +36,7 @@ Password (again): *********
 ### Start project
 
 ```
-docker-compose up
+docker compose up
 ng serve
 ```
 
